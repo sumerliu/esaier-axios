@@ -212,6 +212,20 @@ class EasierAxios {
         }
         return this;
     }
+
+    requestInterceptors(configFn: Function, errorFn: Function) {
+        this.fetch.interceptors.request.use(
+            configFn,
+            errorFn
+        );
+    }
+
+    responseInterceptors(responseFn: Function, errorFn: Function) {
+        this.fetch.interceptors.request.use(
+            responseFn,
+            errorFn
+        );
+    }
 }
 
 export const CONSTANT = {

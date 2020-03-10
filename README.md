@@ -2,7 +2,7 @@
 
 > 基于axios二次封装，为了解决RESTFUL接口冗余问题的一种前端工程化尝试
 
-> version:  0.0.11
+> version:  0.0.12
 
 > lastDate: 2020/3/10
 
@@ -14,6 +14,7 @@
 3. 预先提供全局配置，也可以在每个RESTFUL接口具体配置，出现重复配置时以具体接口配置优先处理。
 4. 统一请求参数的格式，支持请求后台动态路由，支持多个路由参数动态传入。`任何请求方式都支持动态路由参数!`
 5. 每个接口除了data以外，支持axios的config所有配置。新增一个dynamicRouter配置项作为是否启用动态路由接口的标识。
+6. 针对当前实例添加了拦截器接口，多个baseUrl下的可新增实例注册模块加载拦截。
 
 ## Why
 * 在开发前端页面过程中，势必会因为一堆RESTFUL接口的管理带来麻烦，举个例子，目前一个项目已经存在30个接口，如果需要更改a接口的timeout或者method，大家肯定会直接去具体的api调用函数里更改，但是假设api函数所在页面的代码量过于多，定位到准确位置怕是会耗费不少时间。
@@ -74,6 +75,29 @@ npm安装
         api.registerModule({name: 'A', module: moduleA})
            .registerModule({name: 'B', module: moduleB})
            .registerGlobal(apiConfig);
+        //插件使用封装了axios底层拦截器，为当前axios实例添加拦截方法。
+        api.requestInterceptors(
+            function(config) {
+                // Do something before request is sent
+                return config;
+            },
+            function(error) {
+                // Do something with request error
+                return Promise.reject(error);
+            }
+        );
+
+        // Add a response interceptor
+        api.responseInterceptors(
+            function(response) {
+                // Do something with response data
+                return response;
+            },
+            function(error) {
+                // Do something with response error
+                return Promise.reject(error);
+            }
+        );
         //导出api函数
         export default api.request;
     ```
@@ -127,21 +151,6 @@ npm安装
             console.log(err)
         })
     ```
-
-6. 插件使用axios自带的拦截器功能。
-```javascript
-    import axios from "axios";
-
-    // 原生axios的拦截器
-    axios.interceptors.request.use(function (config) {
-        // 在发送请求之前做些什么
-        console.log('你被拦截啦！！')
-        return config
-    }, function (error) {
-        // 对请求错误做些什么
-        return Promise.reject(error)
-    })
-```
 
 ## Attentions
 

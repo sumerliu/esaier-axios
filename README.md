@@ -158,3 +158,4 @@ npm安装
 2. 使用此插件可以最大程度解耦RESTFUL接口和具体业务，开发者只需要用接口地址别名请求，而需要更改接口配置时，不用知道在哪个页面调用了此接口，只需要将注意点放在apiConfig。
 3. 至于插件接口的配置项，直接去看axios文档，与axios函数的第二个参数config完全一致。
 4. 构造器函数的第二参数dynamicRouterPattern支持自定义占位符重写，但是必须是字符串，而且必须要包含`CONSTANT.DYNAMICROUTER_PATTERN_FLAG`。比如： `{CONSTANT.DYNAMICROUTER_PATTERN_FLAG}`、`@CONSTANT.DYNAMICROUTER_PATTERN_FLAG`。注意字符串内不允许出现正则表达式的特定符号，比如$、^等。
+5. VueCli3插件已经完成，安装文档移步[vue-cli-plugin-easy-axios](https://github.com/sumerliu/vue-cli-plugin-easy-axios)

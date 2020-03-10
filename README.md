@@ -2,7 +2,7 @@
 
 > 基于axios二次封装，为了解决RESTFUL接口冗余问题的一种前端工程化尝试
 
-> version:  0.0.10
+> version:  0.0.11
 
 > lastDate: 2020/3/10
 

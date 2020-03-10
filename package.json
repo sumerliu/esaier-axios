@@ -1,6 +1,6 @@
 {
   "name": "easier-axios",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Easier to use axios with configs separated to modules",
   "main": "dist/index.js",
   "scripts": {

@@ -21,7 +21,7 @@ import {
     DEFAULT_BASECONFIG
 } from "./constant";
 
-class ApiModule {
+class EasierAxios {
     private version: string = require("../package.json").version;
     private createdBy: string = "sumerliu@github.com";
     private fetch: any;
@@ -169,7 +169,7 @@ class ApiModule {
      * 
      * @param apiConfig 
      */
-    registerGlobal(apiConfig: ApiConfig): ApiModule {
+    registerGlobal(apiConfig: ApiConfig): EasierAxios {
         this.globalApiInfo = apiConfig;
         return this;
     }
@@ -180,7 +180,7 @@ class ApiModule {
      * @param name 必选，模块名
      * @param module 必选，模块module的写法与apiConfig一致
      */
-    registerModule({ name, module }: ModuleApiConfig): ApiModule {
+    registerModule({ name, module }: ModuleApiConfig): EasierAxios {
         if (Boolean(name) && typeof name == "string") {
             this.moduleApiInfo.push({
                 name,
@@ -198,7 +198,7 @@ class ApiModule {
      * 
      * @param rest 
      */
-    setHeader(...rest: any): ApiModule {
+    setHeader(...rest: any): EasierAxios {
         if (rest.length == 1 && typeof rest == "object") {
             for (const key of Object.keys(rest[0])) {
                 this.globalConfig.headers[key] = rest[0][key];
@@ -220,4 +220,4 @@ export const CONSTANT = {
     MODULE_PATTERN,
     DEFAULT_BASECONFIG
 };
-export default ApiModule;
+export default EasierAxios;

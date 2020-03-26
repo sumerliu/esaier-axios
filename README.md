@@ -10,7 +10,7 @@
     <br />
     <br />
     <br />
-    <a href="https://github.com/sumerliu/easier-axios/blob/master/example/example.html">View Demo</a>
+    <a href="https://github.com/sumerliu/easier-axios/blob/master/example/">View Demo</a>
     ·
     <a href="https://github.com/sumerliu/easier-axios/issues">Report Bug</a>
     ·
@@ -209,7 +209,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Sumer Liu - 843627979@qq.com
 
-Project Link: [https://github.com/sumerliu/esaier-axios](https://github.com/sumerliu/esaier-axios)
+Project Link: [https://github.com/sumerliu/easier-axios](https://github.com/sumerliu/easier-axios)
 
 [license-shield]: https://img.shields.io/github/license/sumerliu/easier-axios.svg?style=flat-square
 [license-url]: https://github.com/sumerliu/easier-axios/blob/master/LICENSE.txt

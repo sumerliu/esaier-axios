@@ -20,7 +20,10 @@ module.exports = {
     entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'index.js'
+    },
+    externals: {
+        axios: 'axios'
     },
     module: {
         rules: [

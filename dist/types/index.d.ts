@@ -5,7 +5,7 @@
  * @license MIT
  */
 import { PreConfig, RequestModuleConfig, ApiConfig, RequestConfig, ModuleApiConfig, RequestHandler, ResponsePromise } from "./type";
-declare class ApiModule {
+declare class EasierAxios {
     private version;
     private createdBy;
     private fetch;
@@ -43,20 +43,22 @@ declare class ApiModule {
      *
      * @param apiConfig
      */
-    registerGlobal(apiConfig: ApiConfig): ApiModule;
+    registerGlobal(apiConfig: ApiConfig): EasierAxios;
     /**
      * 注册模块config，模块会自带命名空间，避免了命名冲突.
      *
      * @param name 必选，模块名
      * @param module 必选，模块module的写法与apiConfig一致
      */
-    registerModule({ name, module }: ModuleApiConfig): ApiModule;
+    registerModule({ name, module }: ModuleApiConfig): EasierAxios;
     /**
      * 更新全局headers
      *
      * @param rest
      */
-    setHeader(...rest: any): ApiModule;
+    setHeader(...rest: any): EasierAxios;
+    requestInterceptors(configFn: Function, errorFn: Function): void;
+    responseInterceptors(responseFn: Function, errorFn: Function): void;
 }
 export declare const CONSTANT: {
     DEFAULT_DYNAMICROUTER_RPATTERN: string;
@@ -64,5 +66,5 @@ export declare const CONSTANT: {
     MODULE_PATTERN: string;
     DEFAULT_BASECONFIG: RequestModuleConfig;
 };
-export default ApiModule;
+export default EasierAxios;
 //# sourceMappingURL=index.d.ts.map

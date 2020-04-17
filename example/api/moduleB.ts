@@ -3,7 +3,7 @@ export default {
         method: "POST",
         url: "sayHi",
         headers: {
-            "Author": "Alan Chen",
+            "Author": "Sumer Liu",
             "From": "Module Hi"
         }
     }

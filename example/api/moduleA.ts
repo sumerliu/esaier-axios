@@ -4,7 +4,7 @@ export default {
         method: "POST",
         url: "sayHello", 
         headers: {
-            "Author": "Alan Chen",
+            "Author": "Sumer Liu",
             "From": "Module Hello"
         }
     }
